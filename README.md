@@ -17,14 +17,15 @@ To write a program to predict the profit of a city using the linear regression m
 ```
 /*
 Program to implement the linear regression using gradient descent.
-Developed by: 
-RegisterNumber:  
+Developed by: NITHIN BILGATES C
+RegisterNumber: 2305001022 
 */
-```
-import numpy as np
+```import numpy as np
 import pandas as pd
+
 from sklearn.preprocessing import StandardScaler
 def linear_regression(X1,y,learning_rate=0.01,num_iters=1000):
+
   X=np.c_[np.ones(len(X1)),X1]
   theta=np.zeros(X.shape[1]).reshape(-1,1)
   for _ in range(num_iters):
@@ -32,6 +33,7 @@ def linear_regression(X1,y,learning_rate=0.01,num_iters=1000):
     errors=(predictions-y).reshape(-1,1)
     theta-=learning_rate*(1/len(X1))*X.T.dot(errors)
   return theta
+
 data=pd.read_csv('/content/50_Startups (1).csv',header=None)
 X=(data.iloc[1:,:-2].values)
 X1=X.astype(float)
@@ -46,7 +48,7 @@ prediction=np.dot(np.append(1,new_Scaled),theta)
 prediction=prediction.reshape(-1,1)
 pre=scaler.inverse_transform(prediction)
 print(f"predicted value: {pre}")
-
+```
 ## Output:
 ![image](https://github.com/user-attachments/assets/9cf62ed8-380d-46d3-9981-25e647ccdc12)
 
